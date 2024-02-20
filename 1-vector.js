@@ -8,23 +8,27 @@
 class Vec {
 
     // Constructor
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
+    constructor(xVal, yVal) {
+        this.x = xVal;
+        this.y = yVal;
     }
 
     // Plus / Minus Methods
     // Change parameters to be Vectors
-    plus() {
-        this.x += x;
-        this.y += y;
+    plus(Vec) {
+        let newX = this.x + Vec.x;
+        let newY = this.y + Vec.y;
+        let newVec = new Vec(newX, newY);
 
+        return(newVec);
     }
 
-    minus() {
-        this.x -= x;
-        this.y -= y;
+    minus(Vec) {
+        let newX = this.x - Vec.x;
+        let newY = this.y - Vec.y;
+        let newVec = new Vec(newX, newY);
 
+        return(newVec);
     }
 
     // Getter
