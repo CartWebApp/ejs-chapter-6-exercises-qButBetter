@@ -19,19 +19,27 @@ class Group {
       // Add it to the group
     }
 
+    console.log("");
   }
 
-  delete() {
+  delete(value) {
 
-  }
-
-  has() {
-    for (i = 0; i < this.length; i++) {
-
+    if (this.has(value)) {
+      // Removes given argument
     }
+
+    console.log("");
   }
 
-  static from () {
+  has(value) {
+    for (i = 0; i < this.length; i++) {
+      // If it ever finds the argument, return true
+    }
+
+    return(false);
+  }
+
+  static from() {
 
   }
 
