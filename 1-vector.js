@@ -15,17 +15,17 @@ class Vec {
 
     // Plus / Minus Methods
     // Change parameters to be Vectors
-    plus(Vec) {
-        let newX = this.x + Vec.x;
-        let newY = this.y + Vec.y;
+    plus(newVector) {
+        let newX = this.x + newVector.x;
+        let newY = this.y + newVector.y;
         let newVec = new Vec(newX, newY);
 
         return(newVec);
     }
 
-    minus(Vec) {
-        let newX = this.x - Vec.x;
-        let newY = this.y - Vec.y;
+    minus(newVector) {
+        let newX = this.x - newVector.x;
+        let newY = this.y - newVector.y;
         let newVec = new Vec(newX, newY);
 
         return(newVec);
