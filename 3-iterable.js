@@ -11,9 +11,6 @@ class Group {
   // Constructor
   constructor() {
     this.group = [];
-    // Makes sure the "iterator" property is set to false.
-    this.done = false;
-    this.value = this.group[0];
   }
 
   // Uses arrow function to see if value is in group already
@@ -45,10 +42,28 @@ class Group {
     return(newGroup);
   }
 
-  // Iterator Methods
+  // Returns an "iterable" group from the GroupIterator class.
+  [SymbolIterator]() {
+    return (new GroupIterator(this));
+  }
+}
+
+class GroupIterator {
+  constructor(group) {
+    this.iterateGroup = group;
+    this.position = 0;
+  }
+
   next () {
-    if (!this.value === "undefined") {
-      this.next();
+    // Checks to see if the position is greater than the iterateGroup length.
+    if (this.position >= this.iterateGroup.length) {
+      return ("done");
+    }
+    // If not, go thru whole iterateGroup.
+    else {
+      let result = {value: this.group.iterateGroup[this.position], done: false};
+      this.position++;
+      return result;
     }
   }
 }
