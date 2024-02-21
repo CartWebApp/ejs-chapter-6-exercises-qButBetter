@@ -9,40 +9,37 @@ Give the class a static from method that takes an iterable object as argument an
 class Group {
   // Constructor
   constructor() {
-
+    this.group = [];
   }
 
   // Uses arrow function to see if value is in group already
   add(value) {
 
     if (!this.has(value)) {
-      // Add it to the group
+      this.group.push(value);
     }
-
-    console.log("");
   }
 
+  // Makes a new array that doesn't have the specific argument
   delete(value) {
-
-    if (this.has(value)) {
-      // Removes given argument
-    }
-
-    console.log("");
+    this.group = (this.group.filter(arg => arg !== value));
   }
 
+  // Checks to see if the group has a given value.
   has(value) {
-    for (i = 0; i < this.length; i++) {
-      // If it ever finds the argument, return true
+    return(this.group.includes(value));
+  }
+
+  // Makes a group from an iterable argument.
+  static from(input) {
+    let newGroup = new Group();
+
+    for (const element of input) {
+      newGroup.add(element);
     }
 
-    return(false);
+    return(newGroup);
   }
-
-  static from() {
-
-  }
-
 }
 
 
