@@ -43,12 +43,13 @@ class Group {
   }
 
   // Returns an "iterable" group from the GroupIterator class.
-  [SymbolIterator]() {
+  [Symbol.iterator]() {
     return (new GroupIterator(this));
   }
 }
 
 class GroupIterator {
+  // Contructs an "iterable group" from the previous group class.
   constructor(group) {
     this.iterateGroup = group;
     this.position = 0;
@@ -56,12 +57,12 @@ class GroupIterator {
 
   next () {
     // Checks to see if the position is greater than the iterateGroup length.
-    if (this.position >= this.iterateGroup.length) {
-      return ("done");
+    if (this.position >= this.iterateGroup.group.length) {
+      return {done: true};
     }
     // If not, go thru whole iterateGroup.
     else {
-      let result = {value: this.group.iterateGroup[this.position], done: false};
+      let result = {value: this.iterateGroup.group[this.position], done: false};
       this.position++;
       return result;
     }
